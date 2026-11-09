@@ -114,9 +114,9 @@ export default function Home() {
 
       <section id="menu" className="bg-stone-50 py-14">
         <Heading sub="Experience authentic Nigerian flavors with our carefully crafted selection of traditional dishes.">Our Popular Dishes</Heading>
-        <div className="max-w-5xl mx-auto px-4 grid sm:grid-cols-2 gap-6 ">
+        <div className="max-w-5xl mx-auto px-4 grid sm:grid-cols-2 gap-8 ">
           {dishes.map((d) => (
-            <article key={d.name} className="bg-white rounded-lg shadow overflow-hidden">
+            <article key={d.name} className="bg-white rounded-lg border-l-4 border-maroon shadow overflow-hidden">
               <div className="relative h-45 bg-stone-200">
                 <img src={d.img} alt={d.name} className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
                 <span className="absolute top-3 right-3 bg-maroon text-white text-[10px] px-2.5 py-1 rounded-full">{d.tag}</span>
