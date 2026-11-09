@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-maroon: #6b0f1a;
+  --color-maroon-dark: #4a0a12;
+  --color-mint: #eefaf3;
+  --color-peach: #fff6ee;
+  --color-ember: #e8793a;
+  --font-sans: "Poppins", sans-serif;
+  --font-head: "Lexend", sans-serif;
+  --font-script: "Playfair Display", serif;
+}
+body { @apply font-sans text-stone-700 bg-white; }
