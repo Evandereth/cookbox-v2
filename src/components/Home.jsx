@@ -2,7 +2,9 @@
 
 // Images live in /public/images — swap in the real files with the same names.
 // const img = (name) => `/images/${name}`
-import Slider from "../components/Slider.jsx"
+// import Slider from "../components/Slider.jsx"
+
+import { useState } from "react"
 import bgimage from "../img/bg-one.jpg"
 import logo from "../img/logo.png"
 import image1 from "../img/bg-home.jpg"
@@ -10,6 +12,16 @@ import jollof from "../img/jollof.jpg"
 import egusi from "../img/egusi.jpg"
 import suya from "../img/suya.jpg"
 import pounded from "../img/pounded.jpg"
+import team1 from "../img/team-2-HIh6KOdg.jpg"
+import team2 from "../img/team-1-DoNqsOPJ.jpg"
+import team3 from "../img/team-3-B8eHjTD3.jpg"
+import team4 from "../img/team-4-DX61uscJ.jpg"
+import team5 from "../img/team-5-BXSBAsDg.jpg"
+import team6 from "../img/team-6-BvWKLxvu.jpg"
+import team7 from "../img/team-7-CEMDaLJK.jpg"
+
+
+    
 
 
 const dishes = [
@@ -34,6 +46,7 @@ const reviews = [
   { name: 'Tamilare Orujo', stars: 4, text: 'Very, very tasty food and very good service as always.' },
 ]
 
+
 const Heading = ({ tag, children, sub }) => (
   <div className="text-center max-w-2xl mx-auto mb-10 px-4">
     {tag && <span className="inline-block bg-maroon/10 text-maroon text-xs font-medium rounded-full px-3 py-1 mb-3">{tag}</span>}
@@ -44,6 +57,20 @@ const Heading = ({ tag, children, sub }) => (
 )
 
 export default function Home() {
+
+    const [activeImage, setActiveImage] = useState(0)
+
+    const teamImage = [
+      {id:1, image:team1},
+      {id:2, image:team2},
+      {id:3, image:team3},
+      {id:4, image:team4},
+      {id:5, image:team5},
+      {id:6, image:team6},
+      {id:7, image:team7}
+    ]
+const showImage = teamImage[activeImage]
+
   return (
     <div>
       {/* Top bar + nav */}
@@ -149,13 +176,22 @@ export default function Home() {
       {/* Team */}
       <section className="py-14">
         <Heading tag="Our Team" sub="Meet the passionate people who make our authentic Nigerian cuisine possible.">The Faces Behind Cookbox</Heading>
-        <div className="max-w-4xl mx-auto px-4 grid grid-cols-2 gap-4">
-          {[1, 2, 3, 4, 5, 6, 7].map((n) => (
-            <div key={n} className="aspect-3/4 rounded-md overflow-hidden bg-stone-200">
-              <img src="" alt={`Cookbox team member ${n}`} className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+        <div className="max-w-4xl mx-auto px-4 flex flex-wrap justify-center items-center gap-4">
+          {teamImage.map((teamImg, index) => (
+            <div key={index} className="w-20 h-20 aspect-3/4 rounded-lg overflow-hidden bg-stone-200">
+              <img 
+              onClick={()=>setActiveImage(index)}
+              src={teamImg.image} alt={`Cookbox team member ${teamImg}`} className={`w-full h-full object-cover object-top cursor-pointer rounded-lg ${index === activeImage ? 'border-4 border-maroon-dark' : "border-0"}`} onError={(e) => (e.currentTarget.style.display = 'none')} />
             </div>
           ))}
         </div>
+
+        <div className="w-[90%] mx-auto my-5 flex justify-center items-center">
+          <div className="w-full h-100 lg:w-200 lg:h-150 aspect-3/4 rounded-xl overflow-hidden bg-stone-200">
+            <img src={teamImage[activeImage].image} alt={`Cookbox team member`} className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+          </div>
+        </div>
+
       </section>
 
       {/* Testimonials */}
@@ -187,9 +223,9 @@ export default function Home() {
           <div>
             <h4 className="text-ember font-head mb-3">Contact Us</h4>
             <ul className="space-y-2 text-sm text-white/85">
-              <li className="flex gap-2"> Your address here</li>
+              <li className="flex gap-2"> our address</li>
               <li className="flex gap-2"> 07970 000000</li>
-              <li className="flex gap-2"> hello@cookboxltd.com</li>
+              <li className="flex gap-2"> hello@cookboxltd.com / confirm mail from Coker</li>
 
               {/* <li className="flex gap-2"><MapPin size={16} /> Your address here</li>
               <li className="flex gap-2"><Phone size={16} /> 07970 000000</li>
