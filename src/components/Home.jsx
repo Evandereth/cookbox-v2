@@ -187,7 +187,7 @@ const showImage = teamImage[activeImage]
         </div>
 
         <div className="w-[90%] mx-auto my-5 flex justify-center items-center">
-          <div className="w-full h-100 lg:w-200 lg:h-150 aspect-3/4 rounded-xl overflow-hidden bg-stone-200">
+          <div className="w-full h-100 md:h-150 lg:w-200 lg:h-150 aspect-3/4 rounded-xl overflow-hidden bg-stone-200">
             <img src={teamImage[activeImage].image} alt={`Cookbox team member`} className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
           </div>
         </div>
