@@ -76,23 +76,24 @@ export default function Home() {
       <Navbar activePage="Home" />
 
       {/* Hero */}
-      <section id="home" className="relative min-h-140 md:min-h-160 flex items-end bg-stone-900">
+      <section id="home" className="relative min-h-140 md:min-h-160 flex items-center bg-stone-900">
         <img src={bgimage} alt="" className="absolute inset-0 w-full h-full object-cover opacity-70" onError={(e) => (e.currentTarget.style.display = 'none')} />
         <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-black/10" />
-        <div className="relative max-w-6xl mx-auto w-full px-4 pb-12 grid md:grid-cols-2 gap-8 items-end">
+        <div className="relative max-w-7xl mx-auto w-full px-4 pb-12 grid md:grid-cols-2 gap-8 items-center">
           <div>
             <span className="inline-block bg-maroon text-white text-xs px-3 py-1 rounded-sm mb-3">Authentic Nigerian Cuisine</span>
-            <h1 className="font-head text-4xl md:text-5xl text-white font-semibold leading-tight">
+            <h1 className="font-head text-4xl md:text-7xl text-white font-semibold leading-tight">
               Welcome to <span className="block font-script italic text-red-700 mt-1">Cookbox Inc.</span>
             </h1>
-            <p className="text-white/85 text-sm mt-4 max-w-md">Bringing the best of Nigerian cuisine to your table! We specialize in traditional Afro-Caribbean meals prepared with fresh, locally sourced ingredients.</p>
-            <a href="#menu" className="inline-block mt-6 bg-maroon hover:bg-maroon-dark text-white text-sm px-6 py-3 rounded-md transition">Explore Our Menu</a>
+            <p className="text-white/85 text-sm md:text-lg mt-4 max-w-xl">Bringing the best of Nigerian cuisine to your table! We specialize in traditional Afro-Caribbean meals prepared with fresh, locally sourced ingredients.</p>
+            <a href="#menu" className="inline-block mt-6 bg-maroon hover:bg-maroon-dark text-white text-md md:text-lg lg:text-xl px-6 py-3 rounded-md transition">Explore Our Menu</a>
           </div>
-          <div className="bg-black/60 backdrop-blur-sm text-white rounded-lg p-5 md:max-w-sm md:ml-auto border-l-3 border-maroon">
+
+          <div className="bg-black/60 backdrop-blur-sm text-white rounded-lg p-5 md:max-w-md lg:max-w-lg md:h-50 lg:h-auto flex flex-col gap-5 md:ml-auto border-l-3 border-maroon">
             <h3 className="font-head text-lg">Fine Dining with an African Twist</h3>
-            <p className="text-xs text-white/80 mt-2">Whether you're hosting a grand celebration, craving a nostalgic taste of home, or exploring something new, we've got you covered.</p>
+            <p className="text-xs md:text-md lg:text-lg text-white/80 mt-2">Whether you're hosting a grand celebration, craving a nostalgic taste of home, or exploring something new, we've got you covered.</p>
             <div>
-              <ul className="w-full flex gap-4 text-xs mt-3 text-white/90 list-disc  marker:text-maroon list-inside">
+              <ul className="w-full flex gap-4 text-xs md:text-md lg:text-lg mt-3 text-white/90 list-disc  marker:text-maroon list-inside">
                 <li>Meals</li>
                 <li>Catering</li>
                 <li>Groceries</li>
