@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import {
   FiBookOpen,
   FiBriefcase,
@@ -12,9 +13,9 @@ import {
 import logo from "../img/logo.png"
 
 const navigationItems = [
-  { label: "Home", href: "/#home", icon: FiHome },
+  { label: "Home", href: "/", route: true, icon: FiHome },
   { label: "Our Menu", href: "/#menu", icon: FiBookOpen },
-  { label: "Catering", href: "/catering", icon: FiUsers },
+  { label: "Catering", href: "/catering", route: true, icon: FiUsers },
   { label: "Cookout Booking", href: "/#contact", icon: FiCalendar },
   { label: "Careers", href: "/#contact", icon: FiBriefcase },
 ]
@@ -50,20 +51,25 @@ export default function Navbar({ activePage = "Home" }) {
         </div>
 
         <nav aria-label="Main navigation" className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-          <a href="/#home" className="w-35 shrink-0" aria-label="Cookbox Inc. home">
+          <Link to="/" className="w-35 shrink-0" aria-label="Cookbox Inc. home">
             <img className="relative h-full w-full cursor-pointer object-cover" src={logo} alt="Cookbox Inc." />
-          </a>
+          </Link>
           <div className="hidden items-center gap-3 lg:flex xl:gap-5">
-            {navigationItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                aria-current={activePage === item.label ? "page" : undefined}
-                className={`whitespace-nowrap text-sm transition hover:text-maroon ${activePage === item.label ? "font-medium text-maroon" : "text-stone-700"}`}
-              >
-                {item.label}
-              </a>
-            ))}
+            {navigationItems.map((item) => {
+              const NavigationLink = item.route ? Link : "a"
+              const destination = item.route ? { to: item.href } : { href: item.href }
+
+              return (
+                <NavigationLink
+                  key={item.label}
+                  {...destination}
+                  aria-current={activePage === item.label ? "page" : undefined}
+                  className={`whitespace-nowrap text-sm transition hover:text-maroon ${activePage === item.label ? "font-medium text-maroon" : "text-stone-700"}`}
+                >
+                  {item.label}
+                </NavigationLink>
+              )
+            })}
           </div>
           <div className="flex items-center gap-2">
             <a
@@ -102,9 +108,9 @@ export default function Navbar({ activePage = "Home" }) {
             className="absolute right-0 top-0 flex h-full w-[min(22rem,88vw)] flex-col bg-white shadow-2xl"
           >
             <div className="flex h-14 shrink-0 items-center justify-between border-b border-stone-100 px-5">
-              <a href="/#home" onClick={() => setIsMenuOpen(false)} aria-label="Cookbox Inc. home">
+              <Link to="/" onClick={() => setIsMenuOpen(false)} aria-label="Cookbox Inc. home">
                 <img className="h-8 w-auto max-w-40 object-contain" src={logo} alt="Cookbox Inc." />
-              </a>
+              </Link>
               <button
                 type="button"
                 aria-label="Close navigation menu"
@@ -118,19 +124,25 @@ export default function Navbar({ activePage = "Home" }) {
               <div className="mb-7">
                 <h2 className="mb-2 px-2 text-xs font-medium uppercase tracking-wide text-stone-400">Main Menu</h2>
                 <ul className="space-y-1">
-                  {navigationItems.map(({ label, href, icon: Icon }) => (
-                    <li key={label}>
-                      <a
-                        href={href}
-                        aria-current={activePage === label ? "page" : undefined}
-                        onClick={() => setIsMenuOpen(false)}
-                        className={`flex min-h-12 items-center gap-3 rounded-lg px-3 text-[15px] font-medium transition focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-maroon ${activePage === label ? "bg-rose-50 text-maroon" : "text-stone-700 hover:bg-rose-50 hover:text-maroon"}`}
-                      >
-                        <Icon className={`shrink-0 ${activePage === label ? "text-maroon" : "text-stone-600"}`} size={18} aria-hidden="true" />
-                        <span>{label}</span>
-                      </a>
-                    </li>
-                  ))}
+                  {navigationItems.map(({ label, href, route, icon: Icon }) => {
+                    const NavigationLink = route ? Link : "a"
+                    const destination = route ? { to: href } : { href }
+                    const className = `flex min-h-12 items-center gap-3 rounded-lg px-3 text-[15px] font-medium transition focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-maroon ${activePage === label ? "bg-rose-50 text-maroon" : "text-stone-700 hover:bg-rose-50 hover:text-maroon"}`
+
+                    return (
+                      <li key={label}>
+                        <NavigationLink
+                          {...destination}
+                          aria-current={activePage === label ? "page" : undefined}
+                          onClick={() => setIsMenuOpen(false)}
+                          className={className}
+                        >
+                          <Icon className={`shrink-0 ${activePage === label ? "text-maroon" : "text-stone-600"}`} size={18} aria-hidden="true" />
+                          <span>{label}</span>
+                        </NavigationLink>
+                      </li>
+                    )
+                  })}
                 </ul>
               </div>
               <div>

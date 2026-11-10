@@ -1,13 +1,16 @@
 import Home from "./components/Home";
 import Catering from "./components/Catering";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
-  const isCateringPage = window.location.pathname.replace(/\/+$/, "") === "/catering"
-
   return (
-    <main>
-      {isCateringPage ? <Catering /> : <Home />}
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/catering" element={<Catering />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
