@@ -5,8 +5,10 @@
 // import Slider from "../components/Slider.jsx"
 
 import { useState } from "react"
+import { FiStar } from "react-icons/fi"
+import Footer from "./Footer"
+import Navbar from "./Navbar"
 import bgimage from "../img/bg-one.jpg"
-import logo from "../img/logo.png"
 import image1 from "../img/bg-home.jpg"
 import jollof from "../img/jollof.jpg"
 import egusi from "../img/egusi.jpg"
@@ -46,7 +48,6 @@ const reviews = [
   { name: 'Tamilare Orujo', stars: 4, text: 'Very, very tasty food and very good service as always.' },
 ]
 
-
 const Heading = ({ tag, children, sub }) => (
   <div className="text-center max-w-2xl mx-auto mb-10 px-4">
     {tag && <span className="inline-block bg-maroon/10 text-maroon text-xs font-medium rounded-full px-3 py-1 mb-3">{tag}</span>}
@@ -69,30 +70,13 @@ export default function Home() {
       {id:6, image:team6},
       {id:7, image:team7}
     ]
-const showImage = teamImage[activeImage]
 
   return (
     <div>
-      {/* Top bar + nav */}
-      
-      <header className="sticky top-0 z-20 bg-white/70 backdrop-blur-sm shadow-sm">
-      
-          <div className="bg-maroon text-white text-xs">
-            <div className="max-w-6xl mx-auto px-4 py-1.5 flex flex-wrap justify-center md:justify-end    gap-x-6">
-              <span>Opening hours: Mon–Sat</span><span>07970 000000</span><span>Location, UK</span>
-            </div>
-          </div>
-      
-            <nav className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-             <div className="w-35">
-              <a href="/" className="font-script italic text-maroon text-lg"><img className="relative w-full h-full object-cover cursor-pointer" src={logo} alt="" /></a>
-              </div> 
-              {/* <button aria-label="Cart" className="text-stone-700"><ShoppingCart size={20} /></   button> */}
-            </nav>
-          </header>
+      <Navbar activePage="Home" />
 
       {/* Hero */}
-      <section className="relative min-h-140 md:min-h-160 flex items-end bg-stone-900">
+      <section id="home" className="relative min-h-140 md:min-h-160 flex items-end bg-stone-900">
         <img src={bgimage} alt="" className="absolute inset-0 w-full h-full object-cover opacity-70" onError={(e) => (e.currentTarget.style.display = 'none')} />
         <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-black/10" />
         <div className="relative max-w-6xl mx-auto w-full px-4 pb-12 grid md:grid-cols-2 gap-8 items-end">
@@ -141,14 +125,14 @@ const showImage = teamImage[activeImage]
 
       <section id="menu" className="bg-stone-50 py-14">
         <Heading sub="Experience authentic Nigerian flavors with our carefully crafted selection of traditional dishes.">Our Popular Dishes</Heading>
-        <div className="max-w-5xl mx-auto px-4 grid sm:grid-cols-2 gap-8 ">
+        <div className="w-full mx-auto px-4 flex flex-wrap gap-10 justify-center items-center">
           {dishes.map((d) => (
-            <article key={d.name} className="bg-white rounded-lg border-l-4 border-maroon shadow overflow-hidden">
+            <article key={d.name} className="w-[22em] h-75 bg-white rounded-lg border-l-4 border-maroon shadow overflow-hidden">
               <div className="relative h-45 bg-stone-200">
                 <img src={d.img} alt={d.name} className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
                 <span className="absolute top-3 right-3 bg-maroon text-white text-[10px] px-2.5 py-1 rounded-full">{d.tag}</span>
               </div>
-              <div className="p-4 h-25 w-full"><h3 className="font-head text-stone-900">{d.name}</h3><p className="text-xs text-stone-500 mt-1">{d.text}</p></div>
+              <div className="p-4 h-25 w-full flex flex-col gap-3 justify-around items-start"><h3 className="font-head text-stone-900 text-xl font-bold">{d.name}</h3><p className="text-sm text-stone-500 mt-1">{d.text}</p></div>
             </article>
           ))}
         </div>
@@ -160,14 +144,14 @@ const showImage = teamImage[activeImage]
       {/* How to order */}
       <section className="bg-mint py-14">
         <Heading tag="Simple Process" sub="Getting your favorite Nigerian dishes delivered to your doorstep is quick and easy.">How to Order</Heading>
-        <div className="max-w-4xl mx-auto p-5 grid sm:grid-cols-2 gap-5">
+        <div className="w-full mx-auto px-4 flex flex-wrap gap-10 justify-center items-center">
           {steps.map((s, i) => (
-            <div key={s.title} className="relative bg-white/50 rounded-xl border border-maroon-dark p-6 text-center h-50 flex flex-col justify-center items-start gap-5">
+            <div key={s.title} className="relative w-[22em] bg-white/50 rounded-xl border border-maroon-dark p-6 text-center h-55 flex flex-col justify-center items-start gap-5">
               <h1 className="text-maroon-dark">
                 {s.id}
               </h1>
               <h3 className="font-head mt-3 text-maroon-dark text-xl">{s.title}</h3>
-              <p className="text-xs text-left text-stone-500 mt-1">{s.text}</p>
+              <p className="text-sm text-left text-stone-500 mt-1">{s.text}</p>
             </div>
           ))}
         </div>
@@ -195,58 +179,41 @@ const showImage = teamImage[activeImage]
       </section>
 
       {/* Testimonials */}
-      <section className="bg-peach py-14">
-        <Heading tag="Customer Reviews" sub="Read what our satisfied customers have to say about their experience with our authentic Nigerian cuisine.">What Our Customers Say</Heading>
-        <div className="max-w-4xl mx-auto px-4 grid sm:grid-cols-2 gap-5">
+      <section className="relative isolate overflow-hidden bg-linear-to-br from-stone-50 via-peach to-rose-50 py-16 md:py-24">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-28 -z-10 h-80 w-80 rounded-full bg-rose-200/30 blur-3xl" />
+        <div aria-hidden="true" className="pointer-events-none absolute -bottom-36 -left-24 -z-10 h-80 w-80 rounded-full bg-amber-100/60 blur-3xl" />
+        <Heading tag="Customer Reviews" sub="A little love from the people who bring Cookbox to their table.">What Our Customers Say</Heading>
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 sm:grid-cols-2 lg:gap-6 xl:grid-cols-4">
           {reviews.map((r) => (
-            <figure key={r.name} className="bg-white rounded-lg shadow-sm p-6 relative">
-              {/* <Quote className="absolute top-4 right-4 text-stone-200" size={28} /> */}
-              {/* <div className="flex gap-0.5 text-amber-400">{Array.from({ length: r.stars }, (_, i) => <Star key={i} size={14} fill="currentColor" />)}</div> */}
-              <blockquote className="text-sm italic text-stone-600 mt-3">"{r.text}"</blockquote>
-              <figcaption className="flex items-center gap-3 mt-4">
-                <span className="w-8 h-8 rounded-full bg-ember text-white grid place-items-center text-sm">{r.name[0]}</span>
-                <span className="text-sm font-medium text-stone-800">{r.name}</span>
+            <figure key={r.name} className="group relative flex min-h-64 flex-col overflow-hidden rounded-2xl border border-white/80 bg-white/85 p-6 shadow-[0_8px_30px_rgba(74,10,18,0.06)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(74,10,18,0.12)] sm:p-7">
+              <span aria-hidden="true" className="absolute -right-1 -top-5 font-serif text-8xl leading-none text-maroon/[0.07] transition group-hover:text-maroon/[0.12]">“</span>
+              <div className="relative mb-5 flex gap-1" role="img" aria-label={`${r.stars} out of 5 stars`}>
+                {Array.from({ length: 5 }, (_, index) => (
+                  <FiStar
+                    key={index}
+                    size={15}
+                    aria-hidden="true"
+                    className={index < r.stars ? "fill-amber-400 text-amber-400" : "text-stone-200"}
+                  />
+                ))}
+              </div>
+              <blockquote className="relative flex-1 text-[15px] leading-7 text-stone-600">
+                “{r.text}”
+              </blockquote>
+              <figcaption className="mt-7 flex items-center gap-3 border-t border-stone-100 pt-5">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gradient-to-br from-rose-100 to-orange-100 font-head text-sm font-semibold text-maroon ring-4 ring-rose-50">
+                  {r.name[0]}
+                </span>
+                <span className="text-sm font-semibold text-stone-800">{r.name}</span>
               </figcaption>
             </figure>
           ))}
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-maroon text-white pt-12 pb-6">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8">
-          <div>
-            <a href="/" className="font-script italic text-lg">Cookbox Inc.</a>
-            <p className="text-sm text-white/80 mt-3 max-w-sm">Bringing the best of Nigerian cuisine to your table! We specialize in traditional Afro-Caribbean meals prepared with fresh, locally sourced ingredients.</p>
-            {/* <div className="flex gap-3 mt-4"><Instagram size={18} /><Facebook size={18} /></div> */}
-          </div>
-          <div>
-            <h4 className="text-ember font-head mb-3">Contact Us</h4>
-            <ul className="space-y-2 text-sm text-white/85">
-              <li className="flex gap-2"> our address</li>
-              <li className="flex gap-2"> 07970 000000</li>
-              <li className="flex gap-2"> hello@cookboxltd.com / confirm mail from Coker</li>
-
-              {/* <li className="flex gap-2"><MapPin size={16} /> Your address here</li>
-              <li className="flex gap-2"><Phone size={16} /> 07970 000000</li>
-              <li className="flex gap-2"><Mail size={16} /> hello@cookboxltd.com</li> */}
-            </ul>
-          </div>
-        </div>
-        <p className="text-center text-xs text-white/60 mt-10">© {new Date().getFullYear()} Cookbox Inc. All Rights Reserved.</p>
-      </footer>
+      <Footer />
     </div>
   )
 }
-
-
-
-
-
-
-
-
-
-
 
 
