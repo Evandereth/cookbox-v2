@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import BulkMenu from './BulkMenu.jsx'
 import {
   FiBox,
   FiBriefcase,
@@ -11,11 +12,13 @@ import {
   FiTool,
   FiUsers,
 } from 'react-icons/fi'
+import Header from './Header.jsx'
 import Footer from './Footer.jsx'
 import Navbar from './Navbar.jsx'
 import image1 from '../img/catering-1-gy0NmtZm.jpg'
 import image2 from '../img/catering-2-D3UPnsXd.jpg'
 import image3 from '../img/catering-3-Da7dWLQ8.jpg'
+// import { GiHealthDecrease } from 'react-icons/gi'
 
 const features = [
   'Customizable menu options to suit your preferences',
@@ -93,9 +96,9 @@ export default function Catering() {
       <Navbar activePage="Catering" />
       {/* Intro */}
       <section className="py-14">
-        {/* <Heading tag="Catering Services" sub="From intimate gatherings to large celebrations, Cookbox Inc. offers exceptional catering services featuring authentic Nigerian and Afro-Caribbean cuisine.">
-          Let Us Cater Your Next Event
-        </Heading> */}
+        <Header tag="Catering Services" name='Let Us Cater Your Next Event' subName="From intimate gatherings to large celebrations, Cookbox Inc. offers exceptional catering services featuring authentic Nigerian and Afro-Caribbean cuisine." />
+          
+        
         <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
           <div className="grid grid-cols-2 gap-3">
             <div className="col-span-2 h-52 rounded-md overflow-hidden bg-stone-200"><img src={image1} alt="Buffet trays of food" /></div>
@@ -135,7 +138,8 @@ export default function Catering() {
         {/* <Heading tag="Party Size Portions" sub="Hosting a big event has never been easier. With our bulk ordering options, you can enjoy stress-free catering with perfectly portioned meals, expertly crafted to delight your guests. Let us handle the food while you enjoy the occasion!">
           Order in Bulk
         </Heading> */}
-        <div className="max-w-3xl mx-auto px-4">
+
+        {/* <div className="max-w-3xl mx-auto px-4">
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h3 className="font-head text-lg text-stone-900 mb-3">Bulk Order Menu</h3>
             <ul className="divide-y divide-stone-100">
@@ -147,7 +151,9 @@ export default function Catering() {
               ))}
             </ul>
           </div>
-        </div>
+        </div> */}
+
+        <BulkMenu />
       </section>
 
 
@@ -175,7 +181,7 @@ export default function Catering() {
       </section>
 
       {/* Reach us */}
-      <section className="py-14">
+      <section id='reach' className="py-14">
         {/* <Heading sub="Tell us about your event, and we'll help bring your vision to life.">Reach Us</Heading> */}
         <form onSubmit={submit} className="max-w-3xl mx-auto px-4">
           <div className="relative bg-white rounded-lg shadow p-6 grid sm:grid-cols-2 gap-4">
@@ -186,7 +192,7 @@ export default function Catering() {
               tabIndex={-1}
               autoComplete="off"
               aria-hidden="true"
-              className="absolute -left-[9999px]"
+              className="absolute left-[-9999px]"
               value={form.company}
               onChange={set('company')}
             />
