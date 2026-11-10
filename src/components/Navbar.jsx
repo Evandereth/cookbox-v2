@@ -43,8 +43,8 @@ export default function Navbar({ activePage = "Home" }) {
       <header className="sticky top-0 z-20 bg-white/70 shadow-sm backdrop-blur-sm">
         <div className="bg-maroon text-xs text-white">
           <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-x-6 px-4 py-1.5 md:justify-end">
-            <span>admin@cookboxltd.com</span>
-            <span>07970 000000</span>
+            <span><a className="transition hover:text-white" href="mailto:Admin@cookboxltd.com">Admin@cookboxltd.com</a></span>
+            <span><a className="transition hover:text-white" href="tel:+447475595055">07475595055</a></span>
             <span>Location, UK</span>
           </div>
         </div>
