@@ -76,12 +76,12 @@ export default function Home() {
       <Navbar activePage="Home" />
 
       {/* Hero */}
-      <section id="home" className="relative min-h-140 md:min-h-160 flex items-center bg-stone-900">
+      <section id="home" className="relative min-h-160 md:min-h-160 flex items-center bg-stone-900">
         <img src={bgimage} alt="" className="absolute inset-0 w-full h-full object-cover opacity-70" onError={(e) => (e.currentTarget.style.display = 'none')} />
         <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-black/10" />
         <div className="relative max-w-7xl mx-auto w-full px-4 pb-12 grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <span className="inline-block bg-maroon text-white text-xs px-3 py-1 rounded-sm mb-3">Authentic Nigerian Cuisine</span>
+            <span className="inline-block bg-maroon text-white text-xs px-3 py-1 rounded-md mb-3">Authentic Nigerian Cuisine</span>
             <h1 className="font-head text-4xl md:text-7xl text-white font-semibold leading-tight">
               Welcome to <span className="block font-script italic text-red-700 mt-1">Cookbox Inc.</span>
             </h1>
@@ -161,9 +161,9 @@ export default function Home() {
       {/* Team */}
       <section className="py-14">
         <Heading tag="Our Team" sub="Meet the passionate people who make our authentic Nigerian cuisine possible.">The Faces Behind Cookbox</Heading>
-        <div className="max-w-4xl mx-auto px-4 flex flex-wrap justify-center items-center gap-4">
+        <div className="max-w-4xl mx-auto px-4 flex flex-wrap justify-center items-center gap-3">
           {teamImage.map((teamImg, index) => (
-            <div key={index} className="w-20 h-20 aspect-3/4 rounded-lg overflow-hidden bg-stone-200">
+            <div key={index} className="w-15 h-18 md:w-20 md:h-20 aspect-3/4 rounded-lg overflow-hidden bg-stone-200">
               <img 
               onClick={()=>setActiveImage(index)}
               src={teamImg.image} alt={`Cookbox team member ${teamImg}`} className={`w-full h-full object-cover object-top cursor-pointer rounded-lg ${index === activeImage ? 'border-4 border-maroon-dark' : "border-0"}`} onError={(e) => (e.currentTarget.style.display = 'none')} />
