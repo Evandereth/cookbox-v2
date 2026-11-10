@@ -14,7 +14,7 @@ import logo from "../img/logo.png"
 const navigationItems = [
   { label: "Home", href: "/#home", icon: FiHome },
   { label: "Our Menu", href: "/#menu", icon: FiBookOpen },
-  { label: "Catering", href: "/#contact", icon: FiUsers },
+  { label: "Catering", href: "/catering", icon: FiUsers },
   { label: "Cookout Booking", href: "/#contact", icon: FiCalendar },
   { label: "Careers", href: "/#contact", icon: FiBriefcase },
 ]

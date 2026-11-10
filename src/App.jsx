@@ -1,14 +1,13 @@
 import Home from "./components/Home";
+import Catering from "./components/Catering";
 
 function App() {
- 
+  const isCateringPage = window.location.pathname.replace(/\/+$/, "") === "/catering"
 
   return (
-    <>
-      <main>
-        <Home />
-      </main>
-    </>
+    <main>
+      {isCateringPage ? <Catering /> : <Home />}
+    </main>
   )
 }
 
