@@ -18,7 +18,11 @@ import Navbar from './Navbar.jsx'
 import image1 from '../img/catering-1-gy0NmtZm.jpg'
 import image2 from '../img/catering-2-D3UPnsXd.jpg'
 import image3 from '../img/catering-3-Da7dWLQ8.jpg'
-// import { GiHealthDecrease } from 'react-icons/gi'
+import marquee from '../img/marquee.jpg'
+import chair from '../img/furnrnt.jpg'
+import hall from '../img/hall.jpg'
+import catering from '../img/cater.jpg'
+import event from '../img/event.jpg'
 
 const features = [
   'Customizable menu options to suit your preferences',
@@ -34,20 +38,13 @@ const events = [
   { icon: FiFlag, title: 'Cultural Events', text: 'Festivals, community gatherings, and cultural celebrations' },
 ]
 
-const bulk = [
-  ['Cooler of Fried Rice', 120], ['Large Tray Asaro', 50], ['Large Tray of Chicken', 45],
-  ['Large Tray of Jollof Rice', 45], ['Large Tray of Fried Rice', 50], ['Cooler of Jollof rice', 100],
-  ['Large Tray of Peppered Fish', 50], ['Large Tray of Turkey', 50], ['Large tray Jambalaya Rice', 50],
-  ['Large Tray of Peppered Beef', 120], ['Large Tray of Moinmoin', 50], ['Large Tray of Assorted Meat', 100],
-  ['Large tray of Small Chops', 50], ['Large tray of Gizdodo', 50],
-]
 
 const hire = [
-  { icon: FiHome, title: 'Marquee Hire', img: 'marquee.jpg', text: 'Premium marquees for events of all sizes, from intimate gatherings to large celebrations.' },
-  { icon: FiBox, title: 'Furniture Hire', img: 'furniture.jpg', text: 'Stylish and comfortable furniture options to accommodate your guests and enhance your event space.' },
-  { icon: FiTool, title: 'Catering Equipment', img: 'equipment.jpg', text: 'Professional catering equipment to ensure your food service runs smoothly and efficiently.' },
-  { icon: FiClipboard, title: 'Event Planning', img: 'planning.jpg', text: 'Comprehensive event planning services to bring your vision to life and ensure every detail is perfect.' },
-  { icon: FiImage, title: 'Hall Decor', img: 'decor.jpg', text: 'Beautiful and elegant decorations to transform your venue into a stunning and memorable space.' },
+  { icon: FiHome, title: 'Marquee Hire', img: marquee, text: 'Premium marquees for events of all sizes, from intimate gatherings to large celebrations.' },
+  { icon: FiBox, title: 'Furniture Hire', img: chair, text: 'Stylish and comfortable furniture options to accommodate your guests and enhance your event space.' },
+  { icon: FiTool, title: 'Catering Equipment', img: catering, text: 'Professional catering equipment to ensure your food service runs smoothly and efficiently.' },
+  { icon: FiClipboard, title: 'Event Planning', img: event, text: 'Comprehensive event planning services to bring your vision to life and ensure every detail is perfect.' },
+  { icon: FiImage, title: 'Hall Decor', img: hall, text: 'Beautiful and elegant decorations to transform your venue into a stunning and memorable space.' },
 ]
 
 const interests = ['Catering', 'Bulk Orders', 'Marquee Hire', 'Furniture Hire', 'Catering Equipment', 'Event Planning', 'Hall Decor']
@@ -101,9 +98,9 @@ export default function Catering() {
         
         <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
           <div className="grid grid-cols-2 gap-3">
-            <div className="col-span-2 h-52 rounded-md overflow-hidden bg-stone-200"><img src={image1} alt="Buffet trays of food" /></div>
-            <div className="h-36 rounded-md overflow-hidden bg-stone-200"><img src={image2} alt="Grilled chicken" /></div>
-            <div className="h-36 rounded-md overflow-hidden bg-stone-200"><img src={image3} alt="Catering chafing dishes" /></div>
+            <div className="col-span-2 h-52 rounded-md overflow-hidden bg-stone-200"><img className='w-full h-full object-cover' src={image1} alt="Buffet trays of food" /></div>
+            <div className="h-36 rounded-md overflow-hidden bg-stone-200"><img className='w-full h-full object-cover' src={image2} alt="Grilled chicken" /></div>
+            <div className="h-36 rounded-md overflow-hidden bg-stone-200"><img className='w-full h-full object-cover' src={image3} alt="Catering chafing dishes" /></div>
           </div>
           <div>
             <h3 className="font-head text-xl text-stone-900">Customized Catering Solutions</h3>
@@ -135,25 +132,7 @@ export default function Catering() {
       {/* Bulk order */}
 
       <section className="bg-[#fefbe8] py-14">
-        {/* <Heading tag="Party Size Portions" sub="Hosting a big event has never been easier. With our bulk ordering options, you can enjoy stress-free catering with perfectly portioned meals, expertly crafted to delight your guests. Let us handle the food while you enjoy the occasion!">
-          Order in Bulk
-        </Heading> */}
-
-        {/* <div className="max-w-3xl mx-auto px-4">
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="font-head text-lg text-stone-900 mb-3">Bulk Order Menu</h3>
-            <ul className="divide-y divide-stone-100">
-              {bulk.map(([name, price]) => (
-                <li key={name} className="flex justify-between py-2.5 text-sm">
-                  <span className="text-stone-700">{name}</span>
-                  <span className="font-medium text-maroon">{price}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div> */}
-
-        <BulkMenu />
+            <BulkMenu />
       </section>
 
 
@@ -161,9 +140,9 @@ export default function Catering() {
 
 
       <section className="bg-slate-50 py-14">
-        {/* <Heading tag="Complete Event Solutions" sub="We specialize in providing Marquee, Furniture, and Catering Equipment Hire, Event Planning, and Hall Decor. Our goal is to create memorable experiences and turn your dream event into a reality.">
-          Events &amp; Hire Service
-        </Heading> */}
+        <Header tag="Complete Event Solutions" name="Events &amp; Hire Service" subName="We specialize in providing Marquee, Furniture, and Catering Equipment Hire, Event Planning, and Hall Decor. Our goal is to create memorable experiences and turn your dream event into a reality." />
+          
+      
         <div className="max-w-4xl mx-auto px-4 grid sm:grid-cols-2 gap-5">
           {hire.map((h) => (
             <article key={h.title} className="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -182,7 +161,7 @@ export default function Catering() {
 
       {/* Reach us */}
       <section id='reach' className="py-14">
-        {/* <Heading sub="Tell us about your event, and we'll help bring your vision to life.">Reach Us</Heading> */}
+        <Header name="Reach Us" subName="Tell us about your event, and we'll help bring your vision to life." />
         <form onSubmit={submit} className="max-w-3xl mx-auto px-4">
           <div className="relative bg-white rounded-lg shadow p-6 grid sm:grid-cols-2 gap-4">
             {/* Honeypot: hidden spam trap, leave empty */}

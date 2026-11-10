@@ -1,12 +1,14 @@
 import { useState } from 'react'
-import { FiArrowRight, FiBox, FiGrid, FiPackage, FiStar } from 'react-icons/fi'
+import { FiArrowRight, FiGrid } from 'react-icons/fi'
+import { GiMeat } from 'react-icons/gi'
+import { BiBowlRice, BiCookie } from 'react-icons/bi'
 import Header from './Header.jsx'
 
 const CURRENCY = '£' // change or remove if these prices aren't in pounds
 
 const categories = [
   {
-    id: 'rice', label: 'Rice', icon: FiPackage,
+    id: 'rice', label: 'Rice', icon: BiBowlRice,
     items: [
       ['Cooler of Fried Rice', 120],
       ['Cooler of Jollof Rice', 100],
@@ -16,7 +18,7 @@ const categories = [
     ],
   },
   {
-    id: 'meat', label: 'Meat & Fish', icon: FiStar,
+    id: 'meat', label: 'Meat & Fish', icon: GiMeat,
     items: [
       ['Large Tray of Chicken', 45],
       ['Large Tray of Peppered Fish', 50],
@@ -27,7 +29,7 @@ const categories = [
     ],
   },
   {
-    id: 'sides', label: 'Sides & Snacks', icon: FiBox,
+    id: 'sides', label: 'Sides & Snacks', icon: BiCookie,
     items: [
       ['Large Tray Asaro', 50],
       ['Large Tray of Moinmoin', 50],
@@ -51,7 +53,7 @@ export default function BulkMenu() {
         subName="Hosting a big event has never been easier. With our bulk ordering options, you can enjoy stress-free catering with perfectly portioned meals, expertly crafted to delight your guests. Let us handle the food while you enjoy the occasion!"
       />
 
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="max-w-5xl mx-auto px-4">
         {/* Filter tabs */}
         <div role="tablist" className="flex flex-wrap gap-2 overflow-x-auto pb-2 mb-8 justify-center items-center">
           {tabs.map((t) => {
