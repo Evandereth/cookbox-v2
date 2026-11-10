@@ -145,13 +145,13 @@ export default function Catering() {
       
         <div className="max-w-4xl mx-auto px-4 grid sm:grid-cols-2 gap-5">
           {hire.map((h) => (
-            <article key={h.title} className="bg-white rounded-lg shadow-sm overflow-hidden">
+            <article key={h.title} className="bg-white rounded-lg shadow-sm overflow-hidden border-l-5 border-maroon-dark">
               <div className="relative h-40 bg-stone-300">
-                {/* <Pic name={h.img} alt={h.title} /> */}
+                <img className='w-full h-full object-cover' src={h.img} alt="" />
                 <div className="absolute inset-0 bg-black/35 grid place-items-center text-white"><h.icon size={28} /></div>
               </div>
               <div className="p-4">
-                <h3 className="font-head text-stone-900">{h.title}</h3>
+                <h3 className="font-head text-maroon-dark">{h.title}</h3>
                 <p className="text-xs text-stone-500 mt-1">{h.text}</p>
               </div>
             </article>
