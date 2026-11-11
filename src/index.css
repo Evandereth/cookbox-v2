@@ -9,5 +9,13 @@
   --font-sans: "Poppins", sans-serif;
   --font-head: "Lexend", sans-serif;
   --font-script: "Playfair Display", serif;
+
+    --animate-sheet-up: sheet-up 0.25s ease-out;
+
+  @keyframes sheet-up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
 }
 body { @apply font-sans text-stone-700 bg-white; }

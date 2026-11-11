@@ -16,8 +16,8 @@ const navigationItems = [
   { label: "Home", href: "/", route: true, icon: FiHome },
   { label: "Our Menu", href: "/#menu", icon: FiBookOpen },
   { label: "Catering", href: "/catering", route: true, icon: FiUsers },
-  { label: "Cookout Booking", href: "/#contact", icon: FiCalendar },
-  { label: "Careers", href: "/#contact", icon: FiBriefcase },
+  { label: "Cookout Booking", href: "/cookout", route: true, icon: FiCalendar },
+  { label: "Careers", href: "/careers", route: true, icon: FiBriefcase },
 ]
 
 export default function Navbar({ activePage = "Home" }) {
