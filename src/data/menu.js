@@ -1,39 +1,64 @@
 export const categories = ["Stew 'N' Soup", 'Grill', 'Healthy', 'Groceries']
 
-const slug = (s) => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 
-// [name, price, category]
-const raw = [
-  ['Golden Penny Semovita', 0.99, 'Groceries'],
-  ['Efo Riro With Pounded Yam', 14.99, "Stew 'N' Soup"],
-  ['Grilled Fish With Plantain', 10.99, 'Grill'],
-  ['Isi Ewu (Sauced Goat Meat)', 16.99, 'Grill'],
-  ['Asun', 18.99, 'Grill'],
-  ['Fish Stew (Omooyo)', 14.99, "Stew 'N' Soup"],
-  ['Egusi Soup', 14.99, "Stew 'N' Soup"],
-  ['Suya', 1.99, 'Grill'],
-  ['Seafood Boil', 14.99, "Stew 'N' Soup"],
-  ['Ewa Agoyin', 9.99, 'Healthy'],
-  ['Gizdodo', 9.99, 'Grill'],
-  ['Cowparts Peppersoup', 14.99, "Stew 'N' Soup"],
-  ['Asaro (Yam Pottage)', 12.5, 'Grill'],
-  ['Amstel Malta', 0.99, 'Groceries'],
-  ['Jollof Rice & Chicken', 14.99, 'Grill'],
-  ['Peak Evaporated Milk', 0.99, 'Groceries'],
-  ['Stock Fish Stew', 14.99, "Stew 'N' Soup"],
-  ['Moin-Moin', 1.99, 'Healthy'],
-  ['Cowbell Powder Milk', 0.99, 'Groceries'],
-  ['Peppered Snails', 20.99, 'Grill'],
-  ['Stewed Meat', 14.99, 'Grill'],
-  ['Okro Soup (Ila Asepo)', 14.99, "Stew 'N' Soup"],
-  ['Close Up Toothpaste', 0.99, 'Groceries'],
-  ['Salad', 1.25, 'Healthy'],
-  ['Three Crowns Milk', 0.99, 'Groceries'],
-  ['Plantain Fries', 1.75, 'Grill'],
-  ['Efo Riro', 14.99, "Stew 'N' Soup"],
-  ['Nkwobi', 14.99, 'Grill'],
-  ['Stew (Ayamas)', 14.99, "Stew 'N' Soup"],
+import semo from "../img/semo.jpg"
+import efo from '../img/eforiro.jpg'
+import grilled from '../img/grilled.jpg'
+import asun from '../img/asun.jpg'
+import imoyo from '../img/imoyo.jpg'
+import egusi from '../img/egusi.jpg'
+import suya from '../img/suya.jpg'
+import seafood from '../img/seafoodboil.jpg'
+import agoyin from '../img/agoyin.jpg'
+import gizdodo from '../img/gizdodo.jpg'
+import peppersoup from '../img/peppersoup.jpg'
+import asaro from '../img/asaro.jpg'
+import malt from '../img/malt.jpg'
+import jollof from '../img/jollof.jpg'
+import peak from '../img/peak.jpg'
+import stew from '../img/fishstew.jpg'
+import moinmoin from '../img/moinmoin.jpg'
+import snail from '../img/snail.jpg'
+import meat from '../img/meat.jpg'
+import okro from '../img/okro.jpg'
+import closeup from '../img/closeup.jpg'
+import salad from '../img/salad.jpg'
+import threecrowns from '../img/threecrowns.jpg'
+import plaintain from '../img/plantain.jpg'
+import pounded from '../img/pounded.jpg'
+import nkwobi from '../img/nkwobi.jpg'
+import ayamase from '../img/ayamase.jpg'
+import cowbell from '../img/cowbell.jpg'
+import isiewu from '../img/isiewu.jpg'
+
+export const menu = [
+  { id: 'golden-penny-semovita', name: 'Golden Penny Semovita', price: 0.99, category: 'Groceries', image: semo },
+  { id: 'efo-riro-with-pounded-yam', name: 'Efo Riro With Pounded Yam', price: 14.99, category: "Stew 'N' Soup", image: pounded   },
+  { id: 'grilled-fish-with-plantain', name: 'Grilled Fish With Plantain', price: 10.99, category: 'Grill', image: grilled  },
+  { id: 'isi-ewu-sauced-goat-meat', name: 'Isi Ewu (Sauced Goat Meat)', price: 16.99, category: 'Grill', image: isiewu  },
+  { id: 'asun', name: 'Asun', price: 18.99, category: 'Grill', image: asun },
+  { id: 'fish-stew-omooyo', name: 'Fish Stew (Imoyo)', price: 14.99, category: "Stew 'N' Soup", image: imoyo },
+  { id: 'egusi-soup', name: 'Egusi Soup', price: 14.99, category: "Stew 'N' Soup", image: egusi },
+  { id: 'suya', name: 'Suya', price: 1.99, category: 'Grill', image: suya },
+  { id: 'seafood-boil', name: 'Seafood Boil', price: 14.99, category: "Stew 'N' Soup",  image: seafood},
+  { id: 'ewa-agoyin', name: 'Ewa Agoyin', price: 9.99, category: 'Healthy', image: agoyin  },
+  { id: 'gizdodo', name: 'Gizdodo', price: 9.99, category: 'Grill', image: gizdodo },
+  { id: 'cowparts-peppersoup', name: 'Cowparts Peppersoup', price: 14.99, category: "Stew 'N' Soup", image: peppersoup },
+  { id: 'asaro-yam-pottage', name: 'Asaro (Yam Pottage)', price: 12.5, category: 'Healthy',  image: asaro},
+  { id: 'amstel-malta', name: 'Amstel Malta', price: 0.99, category: 'Groceries', image: malt },
+  { id: 'jollof-rice-and-chicken', name: 'Jollof Rice & Chicken', price: 14.99, category: 'Healthy', image: jollof },
+  { id: 'peak-evaporated-milk', name: 'Peak Evaporated Milk', price: 0.99, category: 'Groceries', image: peak },
+  { id: 'stock-fish-stew', name: 'Stock Fish Stew', price: 14.99, category: "Stew 'N' Soup", image: stew },
+  { id: 'moin-moin', name: 'Moin-Moin', price: 1.99, category: 'Healthy', image: moinmoin },
+  { id: 'cowbell-powder-milk', name: 'Cowbell Powder Milk', price: 0.99, category: 'Groceries', image: cowbell },
+  { id: 'peppered-snails', name: 'Peppered Snails', price: 20.99, category: "Stew 'N' Soup",  image: snail},
+  { id: 'stewed-meat', name: 'Stewed Meat', price: 14.99, category: "Stew 'N' Soup",  image: meat},
+  { id: 'okro-soup-ila-asepo', name: 'Okro Soup (Ila Asepo)', price: 14.99, category: "Stew 'N' Soup", image: okro },
+  { id: 'close-up-toothpaste', name: 'Close Up Toothpaste', price: 0.99, category: 'Groceries', image: closeup },
+  { id: 'salad', name: 'Salad', price: 1.25, category: 'Healthy', image: salad },
+  { id: 'three-crowns-milk', name: 'Three Crowns Milk', price: 0.99, category: 'Groceries', image: threecrowns },
+  { id: 'plantain-fries', name: 'Plantain Fries', price: 1.75, category: 'Grill', image: plaintain },
+  { id: 'efo-riro', name: 'Efo Riro', price: 14.99, category: "Stew 'N' Soup", image: efo },
+  { id: 'nkwobi', name: 'Nkwobi', price: 14.99, category: 'Healthy', image: nkwobi },
+  { id: 'stew-ayamas', name: 'Stew (Ayamas)', price: 14.99, category: "Stew 'N' Soup", image: ayamase },
 ]
-
-// Photos go in public/images/menu/<id>.jpg (e.g. egusi-soup.jpg)
-export const menu = raw.map(([name, price, category]) => ({ id: slug(name), name, price, category }))

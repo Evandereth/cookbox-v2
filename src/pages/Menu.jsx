@@ -4,10 +4,7 @@ import { menu, categories } from '../data/menu.js'
 import { useCart, money } from '../components/cart.js'
 import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
-import egusi from '../img/egusi.jpg'
-import jollof from '../img/jollof.jpg'
-import pounded from '../img/pounded.jpg'
-import suya from '../img/suya.jpg'
+
 
 const PAGE = 12
 
@@ -18,13 +15,7 @@ const tones = {
   Groceries: 'bg-amber-100 text-amber-800',
 }
 
-const dishImages = {
-  'egusi-soup': egusi,
-  'efo-riro': pounded,
-  'efo-riro-with-pounded-yam': pounded,
-  'jollof-rice-and-chicken': jollof,
-  suya,
-}
+
 
 function DishCard({ dish }) {
   const { add, items } = useCart()
@@ -32,11 +23,11 @@ function DishCard({ dish }) {
 
   return (
     <article className="overflow-hidden rounded-2xl bg-white shadow-sm">
-      <div className={`relative flex h-[118px] items-center justify-center sm:h-[190px] ${tones[dish.category]}`}>
+      <div className={`relative flex h-29.5 items-center justify-center sm:h-47.5 ${tones[dish.category]}`}>
         <FiCoffee size={36} strokeWidth={1.4} aria-hidden="true" />
-        {dishImages[dish.id] && (
+        {dish.image && (
           <img
-            src={dishImages[dish.id]}
+            src={dish.image}
             alt={dish.name}
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover"
@@ -46,14 +37,19 @@ function DishCard({ dish }) {
           {dish.category}
         </span>
       </div>
-      <div className="p-3 pl-3.5 sm:p-[18px]">
-        <h3 className="min-h-[40px] font-head text-sm leading-snug text-stone-900 sm:min-h-[46px] sm:text-base">{dish.name}</h3>
+      <div className="p-3 pl-3.5 sm:p-4.5">
+        <h3 className="min-h-10 font-head text-sm leading-snug text-stone-900 sm:min-h-11.5 sm:text-base">{dish.name}</h3>
         <div className="mt-2 flex items-center justify-between sm:mt-3.5">
-          <span className="font-head text-base font-semibold text-maroon sm:text-lg">{money(dish.price)}</span>
+          {/* <span className="font-head text-base font-semibold text-maroon sm:text-lg">{money(dish.price)}</span> */}
+          <p className='text-xs text-stone-300'>
+            price coming soon
+          </p>
+          
           <button
+            disabled
             onClick={() => add(dish)}
             aria-label={`Add ${dish.name} to cart${inCart ? `, ${inCart} in cart` : ''}`}
-            className="relative grid h-11 w-11 place-items-center rounded-full bg-maroon text-white transition hover:bg-maroon-dark active:scale-95 sm:rounded-xl"
+            className="relative grid h-11 w-11 place-items-center rounded-full bg-maroon text-white transition hover:bg-maroon-dark active:scale-95 sm:rounded-xl cursor-pointer"
           >
             <FiPlus size={20} />
             {inCart > 0 && (
