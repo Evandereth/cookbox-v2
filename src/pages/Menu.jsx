@@ -40,13 +40,13 @@ function DishCard({ dish }) {
       <div className="p-3 pl-3.5 sm:p-4.5">
         <h3 className="min-h-10 font-head text-sm leading-snug text-stone-900 sm:min-h-11.5 sm:text-base">{dish.name}</h3>
         <div className="mt-2 flex items-center justify-between sm:mt-3.5">
-          {/* <span className="font-head text-base font-semibold text-maroon sm:text-lg">{money(dish.price)}</span> */}
-          <p className='text-xs text-stone-300'>
+          <span className="font-head text-base font-semibold text-maroon sm:text-lg">{money(dish.price)}</span>
+          {/* <p className='text-xs text-stone-300'>
             price coming soon
-          </p>
+          </p> */}
           
           <button
-            disabled
+        
             onClick={() => add(dish)}
             aria-label={`Add ${dish.name} to cart${inCart ? `, ${inCart} in cart` : ''}`}
             className="relative grid h-11 w-11 place-items-center rounded-full bg-maroon text-white transition hover:bg-maroon-dark active:scale-95 sm:rounded-xl cursor-pointer"

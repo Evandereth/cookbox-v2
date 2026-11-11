@@ -78,7 +78,7 @@ export default function Navbar({ activePage = "Home" }) {
               type="button"
               onClick={openCart}
               aria-label={`Open cart${count ? `, ${count} ${count === 1 ? "item" : "items"}` : ""}`}
-              className="relative flex h-10 items-center justify-center gap-2 rounded-md px-2 text-stone-600 transition hover:bg-rose-50 hover:text-maroon focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon lg:px-3"
+              className="cursor-pointer relative flex h-10 items-center justify-center gap-2 rounded-md px-2 text-stone-600 transition hover:bg-rose-50 hover:text-maroon focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon lg:px-3"
             >
               <FiShoppingCart size={22} aria-hidden="true" />
               <span className="hidden text-sm lg:inline">Cart</span>
@@ -94,7 +94,7 @@ export default function Navbar({ activePage = "Home" }) {
               aria-expanded={isMenuOpen}
               aria-controls={isMenuOpen ? "mobile-navigation" : undefined}
               onClick={() => setIsMenuOpen((open) => !open)}
-              className="grid h-10 w-10 place-items-center rounded-md text-stone-700 transition hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon lg:hidden"
+              className="cursor-pointer font-extrabold grid h-10 w-10 place-items-center rounded-md text-stone-700 transition hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon lg:hidden"
             >
               {isMenuOpen ? <FiX size={23} /> : <FiMenu size={23} />}
             </button>

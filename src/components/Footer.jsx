@@ -21,10 +21,14 @@ export default function Footer() {
           </p>
           <div className="mt-6 flex items-center gap-3" aria-label="Social media">
             <span role="img" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/15 hover:text-white">
-              <FiInstagram size={20} aria-hidden="true" />
+            <a href="https://www.instagram.com/cookbox_inc?exln=MXJ0bGpkNGkybzAwYw==" target="_blank" rel="noopener noreferrer">
+                <FiInstagram size={20} aria-hidden="true" />
+            </a>
             </span>
             <span role="img" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/15 hover:text-white">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
               <FiFacebook size={20} aria-hidden="true" />
+            </a>
             </span>
           </div>
         </div>

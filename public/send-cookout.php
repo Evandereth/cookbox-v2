@@ -70,7 +70,7 @@ try {
     $mail->Host       = 'mail.cookboxltd.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = 'admin@cookboxltd.com';
-    $mail->Password   = 'YOUR_EMAIL_PASSWORD';
+    $mail->Password   = 'Cookbox123';
 
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
