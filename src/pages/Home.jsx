@@ -1,13 +1,12 @@
-// import { ShoppingCart, CreditCard, Clock, Star, Quote, Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react'
-
 // Images live in /public/images — swap in the real files with the same names.
 // const img = (name) => `/images/${name}`
 // import Slider from "../components/Slider.jsx"
 
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { FiStar } from "react-icons/fi"
-import Footer from "./Footer"
-import Navbar from "./Navbar"
+import Footer from "../components/Footer"
+import Navbar from "../components/Navbar"
 import bgimage from "../img/bg-one.jpg"
 import image1 from "../img/bg-home.jpg"
 import jollof from "../img/jollof.jpg"
@@ -86,7 +85,7 @@ export default function Home() {
               Welcome to <span className="block font-script italic text-red-700 mt-1">Cookbox Inc.</span>
             </h1>
             <p className="text-white/85 text-sm md:text-lg mt-4 max-w-xl">Bringing the best of Nigerian cuisine to your table! We specialize in traditional Afro-Caribbean meals prepared with fresh, locally sourced ingredients.</p>
-            <a href="#menu" className="inline-block mt-6 bg-maroon hover:bg-maroon-dark text-white text-md md:text-lg lg:text-xl px-6 py-3 rounded-md transition">Explore Our Menu</a>
+            <Link to="/menu" className="inline-block mt-6 bg-maroon hover:bg-maroon-dark text-white text-md md:text-lg lg:text-xl px-6 py-3 rounded-md transition">Explore Our Menu</Link>
           </div>
 
           <div className="bg-black/60 backdrop-blur-sm text-white rounded-lg p-5 md:max-w-md lg:max-w-lg md:h-50 lg:h-auto flex flex-col gap-5 md:ml-auto border-l-3 border-maroon">
@@ -137,7 +136,7 @@ export default function Home() {
             </article>
           ))}
         </div>
-        <div className="text-center mt-8"><a href="#" className="inline-block bg-maroon hover:bg-maroon-dark text-white text-sm px-6 py-2.5 rounded-md transition">View Full Menu</a></div>
+        <div className="text-center mt-8"><Link to="/menu" className="inline-block bg-maroon hover:bg-maroon-dark text-white text-sm px-6 py-2.5 rounded-md transition">View Full Menu</Link></div>
       </section>
 
 
@@ -146,7 +145,7 @@ export default function Home() {
       <section className="bg-mint py-14">
         <Heading tag="Simple Process" sub="Getting your favorite Nigerian dishes delivered to your doorstep is quick and easy.">How to Order</Heading>
         <div className="w-full mx-auto px-4 flex flex-wrap gap-10 justify-center items-center">
-          {steps.map((s, i) => (
+          {steps.map((s) => (
             <div key={s.title} className="relative w-[22em] bg-white/50 rounded-xl border border-maroon-dark p-6 text-center h-55 flex flex-col justify-center items-start gap-5">
               <h1 className="text-maroon-dark">
                 {s.id}
@@ -216,5 +215,3 @@ export default function Home() {
     </div>
   )
 }
-
-

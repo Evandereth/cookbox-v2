@@ -10,8 +10,8 @@ import {
   FiX,
 } from 'react-icons/fi'
 import { jobs } from '../data/jobs.js'
-import Footer from './Footer.jsx'
-import Navbar from './Navbar.jsx'
+import Footer from '../components/Footer.jsx'
+import Navbar from '../components/Navbar.jsx'
 
 const Tag = ({ icon: Icon, children }) => (
   <span className="inline-flex items-center gap-1.5 rounded-full bg-maroon/5 px-3 py-1.5 text-xs font-medium text-stone-700">

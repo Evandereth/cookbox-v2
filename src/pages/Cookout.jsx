@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { FiCalendar, FiCloud, FiCoffee, FiMapPin, FiSun } from 'react-icons/fi'
-import Footer from './Footer.jsx'
-import Navbar from './Navbar.jsx'
+import Footer from '../components/Footer.jsx'
+import Navbar from '../components/Navbar.jsx'
 import cookoutFlyer from '../img/event-BZ4XJC9x.jpg'
 
 const occasions = ['Birthday Parties', 'Corporate Events', 'Wedding Receptions', 'Holiday Celebrations', 'Family Reunions']

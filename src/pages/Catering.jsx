@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import BulkMenu from './BulkMenu.jsx'
+import BulkMenu from '../components/BulkMenu.jsx'
 import {
   FiBox,
   FiBriefcase,
@@ -12,9 +12,9 @@ import {
   FiTool,
   FiUsers,
 } from 'react-icons/fi'
-import Header from './Header.jsx'
-import Footer from './Footer.jsx'
-import Navbar from './Navbar.jsx'
+import Header from '../components/Header.jsx'
+import Footer from '../components/Footer.jsx'
+import Navbar from '../components/Navbar.jsx'
 import image1 from '../img/catering-1-gy0NmtZm.jpg'
 import image2 from '../img/catering-2-D3UPnsXd.jpg'
 import image3 from '../img/catering-3-Da7dWLQ8.jpg'

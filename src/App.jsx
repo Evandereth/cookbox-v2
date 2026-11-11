@@ -1,9 +1,13 @@
 import { useLayoutEffect } from "react";
-import Home from "./components/Home";
-import Catering from "./components/Catering";
-import Cookout from "./components/Cookout";
-import Careers from "./components/Career";
+import Home from "./pages/Home";
+import Catering from "./pages/Catering";
+import Cookout from "./pages/Cookout";
+import Careers from "./pages/Career";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import Menu from "./pages/Menu";
+import Checkout from "./pages/Checkout";
+import CartDrawer from "./components/CartDrawer";
+import { CartProvider } from "./components/CartContext";
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -18,14 +22,19 @@ function ScrollToTop() {
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/catering" element={<Catering />} />
-        <Route path="/cookout" element={<Cookout />} />
-        <Route path="/careers" element={<Careers />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <CartProvider>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/catering" element={<Catering />} />
+          <Route path="/cookout" element={<Cookout />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+        <CartDrawer />
+      </CartProvider>
     </BrowserRouter>
   )
 }

@@ -19,3 +19,10 @@
 
 }
 body { @apply font-sans text-stone-700 bg-white; }
+
+
+@media print {
+  body * { visibility: hidden; }
+  .invoice, .invoice * { visibility: visible; }
+  .invoice { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; }
+}

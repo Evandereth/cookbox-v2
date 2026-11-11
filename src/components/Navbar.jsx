@@ -10,11 +10,12 @@ import {
   FiUsers,
   FiX,
 } from "react-icons/fi"
+import { useCart } from "./cart.js"
 import logo from "../img/logo.png"
 
 const navigationItems = [
   { label: "Home", href: "/", route: true, icon: FiHome },
-  { label: "Our Menu", href: "/#menu", icon: FiBookOpen },
+  { label: "Our Menu", href: "/menu", route: true, icon: FiBookOpen },
   { label: "Catering", href: "/catering", route: true, icon: FiUsers },
   { label: "Cookout Booking", href: "/cookout", route: true, icon: FiCalendar },
   { label: "Careers", href: "/careers", route: true, icon: FiBriefcase },
@@ -22,6 +23,7 @@ const navigationItems = [
 
 export default function Navbar({ activePage = "Home" }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { count, openCart } = useCart()
 
   useEffect(() => {
     if (!isMenuOpen) return undefined
@@ -72,14 +74,20 @@ export default function Navbar({ activePage = "Home" }) {
             })}
           </div>
           <div className="flex items-center gap-2">
-            <a
-              href="/#menu"
-              aria-label="Cart"
-              className="flex h-10 items-center justify-center gap-2 rounded-md px-2 text-stone-600 transition hover:bg-rose-50 hover:text-maroon focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon lg:px-3"
+            <button
+              type="button"
+              onClick={openCart}
+              aria-label={`Open cart${count ? `, ${count} ${count === 1 ? "item" : "items"}` : ""}`}
+              className="relative flex h-10 items-center justify-center gap-2 rounded-md px-2 text-stone-600 transition hover:bg-rose-50 hover:text-maroon focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon lg:px-3"
             >
               <FiShoppingCart size={22} aria-hidden="true" />
               <span className="hidden text-sm lg:inline">Cart</span>
-            </a>
+              {count > 0 && (
+                <span aria-hidden="true" className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-maroon px-1 text-[11px] font-medium text-white">
+                  {count}
+                </span>
+              )}
+            </button>
             <button
               type="button"
               aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -149,14 +157,17 @@ export default function Navbar({ activePage = "Home" }) {
                 <h2 className="mb-2 px-2 text-xs font-medium uppercase tracking-wide text-stone-400">My Account</h2>
                 <ul className="space-y-1">
                   <li>
-                    <a
-                      href="/#menu"
-                      onClick={() => setIsMenuOpen(false)}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsMenuOpen(false)
+                        openCart()
+                      }}
                       className="flex min-h-12 items-center gap-3 rounded-lg px-3 text-[15px] font-medium text-stone-700 transition hover:bg-rose-50 hover:text-maroon focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-maroon"
                     >
                       <FiShoppingCart className="shrink-0 text-stone-600" size={18} aria-hidden="true" />
-                      <span>My Cart</span>
-                    </a>
+                      <span>My Cart{count > 0 ? ` (${count})` : ""}</span>
+                    </button>
                   </li>
                 </ul>
               </div>
